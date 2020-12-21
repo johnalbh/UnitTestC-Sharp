@@ -1,4 +1,5 @@
-﻿using FirstTestProject.Services;
+﻿using FirstTestProject.Repository;
+using FirstTestProject.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FirstTestProject.Tests
@@ -7,16 +8,16 @@ namespace FirstTestProject.Tests
     public class TaxServiceShould
     {
         [TestMethod]
-        public void Return1000IfGrossSalaaryIs9500()
+        public void Return1805IfGrossSalaaryIs9500()
         {
-            var taxService = new TaxService();
-            Assert.AreEqual(1000,taxService.GetTax(9500));
+            var taxService = new TaxService(new RangeRepository());
+            Assert.AreEqual(1805,taxService.GetTax(9500));
         }
         [TestMethod]
-        public void Return2000IfGrossSalaaryIs19500()
+        public void Return4680IfGrossSalaaryIs19500()
         {
-            var taxService = new TaxService();
-            Assert.AreEqual(2000, taxService.GetTax(19500));
+            var taxService = new TaxService(new RangeRepository());
+            Assert.AreEqual(4680, taxService.GetTax(19500));
         }
     }
 }

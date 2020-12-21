@@ -1,4 +1,5 @@
 ﻿using System;
+using FirstTestProject.Repository;
 using FirstTestProject.Services;
 
 namespace FirstTestProject
@@ -16,7 +17,7 @@ namespace FirstTestProject
                 return;;
             }
 
-            var taxService = new TaxService();
+            var taxService = new TaxService(new RangeRepository());
             Console.WriteLine($"Vas a pagar {taxService.GetTax(gross)}.");
             Console.Read();
         }
